@@ -6,27 +6,7 @@ public class MainState : State {
 
     public MainState(StateMenu stateMenu) : base(stateMenu) {
         
-    }
-
-    //-------------
-    //private static MainState _instance; 
-
-    //private MainState() {
-    //    if (_instance != null) {
-    //        return;  
-    //    }
-    //    _instance = this;
-    //}
-
-    //public static MainState Instance {
-    //    get {
-    //        if (_instance == null) {
-    //            return new MainState(); 
-    //        }
-    //        return _instance;
-    //    }
-    //}
-    //-------------
+    } 
 
     public override void ActiveState() {
         Debug.Log("ВКЛЮЧАЕМ главное меню");

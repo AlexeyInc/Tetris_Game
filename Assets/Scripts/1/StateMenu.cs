@@ -32,36 +32,6 @@ namespace StateBuns
             CurrentState.DeactivateState();
             CurrentState.UpdateState(num);
             CurrentState.ActiveState();
-        } 
-
-        //------------------
-        //internal State CurrentState { get; private set; } 
-        //public StateMenu() { 
-        //    CurrentState = null;
-        //}
-
-        //public void ChangeState(State _newState) {
-        //    if (CurrentState != null) {
-        //        CurrentState.DeactivateState(); 
-        //    }
-        //    CurrentState = _newState;
-        //    CurrentState.ActiveState();
-        //} 
-
-        //public void Update(string name) {
-        //    if (CurrentState != null) {
-        //        switch (name) {
-        //            case "Game":
-        //                CurrentState.UpdateState(GameState.Instance);
-        //                break;
-        //            case "Help":
-        //                CurrentState.UpdateState(HelpState.Instance);
-        //                break;
-        //            default: Debug.Log("Не подошел ни один из ключей");
-        //                break;
-        //        } 
-        //    }
-        //}
-        //------------
+        }  
     }
 } 
