@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using StateSpace;
+ 
 
-public class Program : MonoBehaviour {
-    //public Canvas MainMenuCanvas, GameMenuCanvas, HelpMenuCanvas; 
-
+class Program : MonoBehaviour { 
+     
     public StateMachine StateMachine { get; set; }
 
     private void Start() {
@@ -13,7 +13,7 @@ public class Program : MonoBehaviour {
         StateMachine.ChangeState(MainState_.Instance);
     }
 
-    //Методы выключают текущее состояние и включает следующее 
+    //Methods turn off the current state and include the following
 
     public void OnClickGame() {
         StateMachine.ChangeState(GameState_.Instance);
@@ -23,7 +23,7 @@ public class Program : MonoBehaviour {
         StateMachine.ChangeState(HelpState_.Instance);
     }
 
-    //Выключает текущее состояния и возвращает в главное меню
+    //Turns off the current state and returns to the main menu
 
     public void BackClick() {
         StateMachine.Update();

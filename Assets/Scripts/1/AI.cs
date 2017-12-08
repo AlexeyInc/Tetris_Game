@@ -4,9 +4,7 @@ using UnityEngine;
 using StateBuns;
 
 public class AI : MonoBehaviour {
-
-   // Canvas MainMenuCanvas, GameMenuCanvas, HelpMenuCanvas; 
-
+     
     public StateMenu stateMenu { get; set; }
 
     private void Start() {

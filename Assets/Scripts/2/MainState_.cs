@@ -26,6 +26,6 @@ public class MainState_ : State {
     }
 
     public override void UpdateState(StateMachine menu) {
-        //no any logic
+        //no any logic 
     }
 }

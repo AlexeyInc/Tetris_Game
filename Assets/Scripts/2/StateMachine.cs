@@ -2,9 +2,9 @@
 namespace StateSpace {
 
     public abstract class State {
-        public abstract void ActiveState();
-        public abstract void DeactivateState();
-        public abstract void UpdateState(StateMachine menu);
+        public virtual void ActiveState() { }
+        public virtual void DeactivateState() { }
+        public virtual void UpdateState(StateMachine menu) { }
     }
 
     public class StateMachine {
@@ -14,11 +14,11 @@ namespace StateSpace {
             CurrentState = null;
         }
 
-        public void ChangeState(State _newState) {
+        public void ChangeState(State newState) {
             if (CurrentState != null) {
                 CurrentState.DeactivateState();
             }
-            CurrentState = _newState;
+            CurrentState = newState;
             CurrentState.ActiveState();
         }
 
