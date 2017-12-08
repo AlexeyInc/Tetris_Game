@@ -5,7 +5,10 @@ public class MainState_ : State {
     private static MainState_ _instance;
 
     public static MainState_ Instance {
-        get { 
+        get {
+            if (_instance == null) {
+                return new MainState_();
+            }
             return _instance;
         }
     }

@@ -6,7 +6,10 @@ public class HelpState_ : State {
     private static HelpState_ _instance;
 
     public static HelpState_ Instance {
-        get { 
+        get {
+            if (_instance == null) {
+                return new HelpState_();
+            }
             return _instance;
         }
     }

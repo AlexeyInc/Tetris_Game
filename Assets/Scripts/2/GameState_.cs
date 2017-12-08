@@ -5,7 +5,10 @@ public class GameState_ : State {
     private static GameState_ _instance;
 
     public static GameState_ Instance {
-        get { 
+        get {
+            if (_instance == null) {
+                new GameState_();
+            }
             return _instance;
         }
     }
