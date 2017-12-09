@@ -14,8 +14,8 @@ public class Viewer : MonoBehaviour {
     private void Awake() {
         if (_instance == null) {
             _instance = this;
-        } 
-        Program prog = new Program();
+        }
+        Controller prog = new Controller();
         prog.Init();
     }
 

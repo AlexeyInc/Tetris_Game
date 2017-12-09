@@ -1,5 +1,4 @@
-﻿ using StateSpace;
-using UnityEngine;
+﻿ using StateSpace; 
 
 public enum States {
     Main,
@@ -7,7 +6,7 @@ public enum States {
     Help
 }
 
-class Program {
+class Controller {
     //varibles for know curMode menuState
     private bool main, game, help;
 
@@ -22,8 +21,7 @@ class Program {
     }
 
     //Turn off the current state and turn on following
-    private void OnClick(States someState) {
-        Debug.Log("OnClick");
+    private void OnClick(States someState) { 
         switch (someState) {
             case States.Main:
                 StateMachine.ChangeState(MainState.Instance); 
@@ -42,8 +40,7 @@ class Program {
     }
 
     //----------This_method_makes_me_cry--------------------
-    private void SetupView() {
-        Debug.Log("SetupView");
+    private void SetupView() { 
         StateMachine.GetMode(out main, out game, out help);
 
         Viewer._instance.ModeMenu(main, game, help); 
