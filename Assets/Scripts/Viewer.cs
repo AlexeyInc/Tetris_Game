@@ -36,13 +36,8 @@ public class Viewer : MonoBehaviour {
     }
 
     public void ModeMenu(bool valMain, bool valGame, bool valHelp) {
- 
         c_MainMenu.SetActive(valMain);
         c_GameMenu.SetActive(valGame);
         c_HelpMenu.SetActive(valHelp);
-    }  
-
-    public void SetActive() {
-        c_MainMenu.SetActive(true);
-    }
+    }   
 }

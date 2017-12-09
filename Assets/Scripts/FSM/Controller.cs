@@ -1,17 +1,16 @@
 ﻿ using StateSpace; 
-
+ 
+//Base states of menu
 public enum States {
     Main,
     Game,
     Help
 }
 
-class Controller {
-    //varibles for know curMode menuState
-    private bool main, game, help;
+class Controller { 
 
     StateMachine StateMachine { get; set; }
-      
+     
     public void Init() {
         StateMachine = new StateMachine();
 
@@ -40,10 +39,10 @@ class Controller {
     }
 
     //----------This_method_makes_me_cry--------------------
-    private void SetupView() { 
-        StateMachine.GetMode(out main, out game, out help);
-
-        Viewer._instance.ModeMenu(main, game, help); 
+    private void SetupView() {   
+        Viewer._instance.ModeMenu(StateMachine.isActiveMain,
+                                  StateMachine.isActiveGame,
+                                  StateMachine.isActiveHelp); 
     }
     //------------------------------------------------------
 
