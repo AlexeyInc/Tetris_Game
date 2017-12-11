@@ -20,8 +20,8 @@ namespace FSM {
         private int _id = -1;
         private string _name = "Zero_state";
 
-        // некоторое действующее значение связанное со стейтом, 
-        //например для управления игровым процессом
+        //some value associated with the current state
+        //this variable can be expanded
         public int someValue = -1;
 
         public event ChangeStateHandler OnStateEnter;
@@ -32,7 +32,8 @@ namespace FSM {
         /// </summary>
         public State() {
             _id = listStates.Count; //simple getter ID
-            listStates.Add(this); 
+            listStates.Add(this);
+            _name = "new state #" + (listStates.Count - 1).ToString();
         }
 
         public State(string name, int someValue) : this(){
@@ -73,6 +74,7 @@ namespace FSM {
                 if(_isActive && !value) {
                     if (OnStateExit != null) OnStateExit(); 
                 }
+                _isActive = value;
             }
         }
 
@@ -83,7 +85,11 @@ namespace FSM {
         } 
 
         #region Public static methods
-
+        /// <summary>
+        /// Find stets in lisrStates by ID
+        /// </summary>
+        /// <param name="id">ID state</param>
+        /// <returns></returns>
         static public State GetStateByID(int id) {
             foreach (State state in listStates) {
                 if (state._id == id) {
@@ -93,6 +99,11 @@ namespace FSM {
             return null;
         }
 
+        /// <summary>
+        /// Find stets in lisrStates by Name
+        /// </summary>
+        /// <param name="id">_name state</param>
+        /// <returns></returns>
         static public State GetStateByName(string name) {
             if (string.IsNullOrEmpty(name.Trim())) {
                 return null;
@@ -115,16 +126,7 @@ namespace FSM {
         static public bool operator !=(State stateOne, State stateTwo) {
             return !(stateOne == stateTwo);
         }
-        #endregion
-
-        //-------------------------------------------------
-        public override bool Equals(object obj) {
-            State state = obj as State;
-            if (state != null) {
-                return state._name == this._name;
-            }
-            throw new System.NullReferenceException();
-        }
+        #endregion 
     } 
 }
 
