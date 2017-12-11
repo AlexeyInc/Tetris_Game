@@ -1,49 +1,27 @@
-﻿ using StateSpace; 
- 
-//Base states of menu
-public enum States {
-    Main,
-    Game,
-    Help
-}
+﻿using FSM;
+using UnityEngine;
 
-class Controller { 
+class Controller : MonoBehaviour {
+    public static Controller instance;
 
-    StateMachine StateMachine { get; set; }
-     
-    public void Init() {
-        StateMachine = new StateMachine();
-
-        Viewer._instance.ChangeMenu += OnClick;
-
-        OnClick(States.Main);
+    private void Awake() {
+        instance = this;
     }
 
-    //Turn off the current state and turn on following
-    private void OnClick(States someState) { 
-        switch (someState) {
-            case States.Main:
-                StateMachine.ChangeState(MainState.Instance); 
-                break;
-            case States.Game:
-                StateMachine.ChangeState(GameState.Instance);
-                break;
-            case States.Help:
-                StateMachine.ChangeState(HelpState.Instance);
-                break;
-            default:
-                break;
+    public void ChangeScenario(View view) {
+        if (view == null) return;
+        State state = view.ActiveState;
+
+        if (state == null) return;
+
+        string name = state.Name;
+
+        if (name == "NewGame") {
+            view.SwitchState("HUD");
         }
 
-        SetupView();
+        if (name == "Exit") {
+            Application.Quit();
+        }
     }
-
-    //----------This_method_makes_me_cry--------------------
-    private void SetupView() {   
-        Viewer._instance.ModeMenu(StateMachine.isActiveMain,
-                                  StateMachine.isActiveGame,
-                                  StateMachine.isActiveHelp); 
-    }
-    //------------------------------------------------------
-
 }
