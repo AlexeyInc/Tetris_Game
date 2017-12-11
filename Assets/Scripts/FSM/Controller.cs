@@ -40,6 +40,11 @@ class Controller : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// checks if the state of the game changes
+    /// if not, then passes control to stateMachine for change stateMenu
+    /// </summary>
+    /// <param name="newState">name of new State</param>
     public void ChangeScenario(string newState) { 
         if (newState == "NewGame") {
             int val = _stateMachine.CurActiveState.someValue;
@@ -53,7 +58,7 @@ class Controller : MonoBehaviour {
         _stateMachine.SwitchState(newState);
     }
 
-    public void OnUIActionEnter() {
+     void OnUIActionEnter() {
         if (_stateMachine == null || _stateMachine.CurActiveState == null) return;
         int val = _stateMachine.CurActiveState.someValue;
         if ((val == -1) || View.instance.UI_Elements.Length == 0) return;
@@ -62,7 +67,7 @@ class Controller : MonoBehaviour {
         View.instance.UI_Elements[val].SetActive(true);
     }
 
-    public void OnUIActionExit() {
+     void OnUIActionExit() {
         if (_stateMachine == null || _stateMachine.CurActiveState == null) return;
         int val = _stateMachine.CurActiveState.someValue;
         if ((val == -1) || View.instance.UI_Elements.Length == 0) return;

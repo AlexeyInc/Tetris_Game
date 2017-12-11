@@ -20,6 +20,9 @@ namespace FSM {
             _curActiveState = null;
         }
 
+        /// <summary>
+        /// Returns current active state
+        /// </summary>
         public State CurActiveState {
             get {
                 if (_isFrmSctive && (_curActiveState != null)) {
@@ -28,8 +31,12 @@ namespace FSM {
                     return null;
                 }
             }
-        } 
-
+        }
+        /// <summary>
+        /// Switch new current state
+        /// property IsActive triggers an event
+        /// </summary>
+        /// <param name="newState"></param>
         public void SwitchState(State newState) {
             if (newState == null) return; 
 
@@ -38,6 +45,10 @@ namespace FSM {
             if (_isFrmSctive) _curActiveState.IsActive = true;
         }
 
+        /// <summary>
+        /// Find state by ID and activate it
+        /// </summary>
+        /// <param name="stateID"></param>
         public void SwitchState(int stateID = -1) {
             if (stateID < 0) return;
             State state = State.GetStateByID(stateID);
@@ -45,6 +56,10 @@ namespace FSM {
             SwitchState(state);
         }
 
+        /// <summary>
+        ///  Find state by Name and activate it
+        /// </summary>
+        /// <param name="stateName"></param>
         public void SwitchState(string stateName = "") {
             if (string.IsNullOrEmpty(stateName)) return;
             State state = State.GetStateByName(stateName);  
