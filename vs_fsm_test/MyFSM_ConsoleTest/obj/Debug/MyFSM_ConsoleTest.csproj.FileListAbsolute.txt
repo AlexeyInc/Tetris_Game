@@ -1,7 +1,0 @@
-c:\users\aleks\documents\visual studio 2017\Projects\MyFSM_ConsoleTest\MyFSM_ConsoleTest\bin\Debug\MyFSM_ConsoleTest.exe
-c:\users\aleks\documents\visual studio 2017\Projects\MyFSM_ConsoleTest\MyFSM_ConsoleTest\bin\Debug\MyFSM_ConsoleTest.pdb
-c:\users\aleks\documents\visual studio 2017\Projects\MyFSM_ConsoleTest\MyFSM_ConsoleTest\bin\Debug\MyFSM.dll
-c:\users\aleks\documents\visual studio 2017\Projects\MyFSM_ConsoleTest\MyFSM_ConsoleTest\bin\Debug\MyFSM.pdb
-c:\users\aleks\documents\visual studio 2017\Projects\MyFSM_ConsoleTest\MyFSM_ConsoleTest\obj\Debug\MyFSM_ConsoleTest.csprojResolveAssemblyReference.cache
-c:\users\aleks\documents\visual studio 2017\Projects\MyFSM_ConsoleTest\MyFSM_ConsoleTest\obj\Debug\MyFSM_ConsoleTest.exe
-c:\users\aleks\documents\visual studio 2017\Projects\MyFSM_ConsoleTest\MyFSM_ConsoleTest\obj\Debug\MyFSM_ConsoleTest.pdb
