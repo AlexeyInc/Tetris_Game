@@ -4,15 +4,24 @@ using MyFSM;
 
 public class View : MonoBehaviour {
 
-    public static View instance;
+    private static View _instance;
 
-    public GameObject[] UI_Elements;  
+    public GameObject[] UI_Elements; 
+
+    public static View Instance {
+        get {
+            if (_instance == null) {
+                new View();
+            }
+            return _instance;
+        }
+    }
 
     private void Awake() {
-        instance = this; 
+        _instance = this; 
     }  
 
     public void OnMenuButtonClick_Name(string newStateName) {
-        Controller.instance.ChangeScenario(newStateName);
+        Controller.Instance.ChangeScenario(newStateName);
     } 
 }

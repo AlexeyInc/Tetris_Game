@@ -2,13 +2,22 @@
 using UnityEngine;
 
 class Controller : MonoBehaviour {
-    public static Controller instance;
+    static Controller _instance;
+     
     StateMachine _stateMachine = null;
 
+    public static Controller Instance {
+        get {
+            if (_instance == null) {
+                new Controller();
+            }
+            return _instance;
+        }
+    }
+
     private void Awake() {
-        instance = this;
-        _stateMachine = new StateMachine();
-        Debug.Log(_stateMachine);
+        _instance = this;
+        _stateMachine = new StateMachine(); 
     }
 
     private void Start() {
@@ -34,7 +43,7 @@ class Controller : MonoBehaviour {
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            if (View.instance != null) {
+            if (View.Instance != null) {
                 _stateMachine.SwitchState("MainMenu");
             }
         }
@@ -48,7 +57,7 @@ class Controller : MonoBehaviour {
     public void ChangeScenario(string newState) { 
         if (newState == "NewGame") {
             int val = _stateMachine.CurActiveState.someValue;
-            View.instance.UI_Elements[val].SetActive(false);
+            View.Instance.UI_Elements[val].SetActive(false);
         }
 
         if (newState == "Exit") {
@@ -60,19 +69,22 @@ class Controller : MonoBehaviour {
 
      void OnUIActionEnter() {
         if (_stateMachine == null || _stateMachine.CurActiveState == null) return;
-        int val = _stateMachine.CurActiveState.someValue;
-        if ((val == -1) || View.instance.UI_Elements.Length == 0) return;
-        if (val >= View.instance.UI_Elements.Length) return;
 
-        View.instance.UI_Elements[val].SetActive(true);
+        int val = _stateMachine.CurActiveState.someValue; 
+        if ((val == -1) || View.Instance.UI_Elements.Length == 0) return;
+        if (val >= View.Instance.UI_Elements.Length) return;
+
+        View.Instance.UI_Elements[val].SetActive(true);
     }
 
      void OnUIActionExit() {
         if (_stateMachine == null || _stateMachine.CurActiveState == null) return;
+
         int val = _stateMachine.CurActiveState.someValue;
-        if ((val == -1) || View.instance.UI_Elements.Length == 0) return;
-        if (val >= View.instance.UI_Elements.Length) return;
-        View.instance.UI_Elements[val].SetActive(false);
+        if ((val == -1) || View.Instance.UI_Elements.Length == 0) return;
+        if (val >= View.Instance.UI_Elements.Length) return;
+
+        View.Instance.UI_Elements[val].SetActive(false);
     }
 
 }
