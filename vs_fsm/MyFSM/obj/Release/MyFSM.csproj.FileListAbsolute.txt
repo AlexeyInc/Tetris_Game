@@ -1,0 +1,5 @@
+c:\users\aleks\documents\visual studio 2017\Projects\MyFSM\MyFSM\bin\Release\MyFSM.dll
+c:\users\aleks\documents\visual studio 2017\Projects\MyFSM\MyFSM\bin\Release\MyFSM.pdb
+c:\users\aleks\documents\visual studio 2017\Projects\MyFSM\MyFSM\obj\Release\MyFSM.csprojResolveAssemblyReference.cache
+c:\users\aleks\documents\visual studio 2017\Projects\MyFSM\MyFSM\obj\Release\MyFSM.dll
+c:\users\aleks\documents\visual studio 2017\Projects\MyFSM\MyFSM\obj\Release\MyFSM.pdb
