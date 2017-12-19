@@ -5,3 +5,8 @@ c:\users\aleks\documents\visual studio 2017\Projects\MyFSM_ConsoleTest\MyFSM_Con
 c:\users\aleks\documents\visual studio 2017\Projects\MyFSM_ConsoleTest\MyFSM_ConsoleTest\obj\Debug\MyFSM_ConsoleTest.csprojResolveAssemblyReference.cache
 c:\users\aleks\documents\visual studio 2017\Projects\MyFSM_ConsoleTest\MyFSM_ConsoleTest\obj\Debug\MyFSM_ConsoleTest.exe
 c:\users\aleks\documents\visual studio 2017\Projects\MyFSM_ConsoleTest\MyFSM_ConsoleTest\obj\Debug\MyFSM_ConsoleTest.pdb
+F:\Unity_main_data\MyTetris_Game\vs_fsm_test\MyFSM_ConsoleTest\bin\Debug\MyFSM_ConsoleTest.exe
+F:\Unity_main_data\MyTetris_Game\vs_fsm_test\MyFSM_ConsoleTest\bin\Debug\MyFSM_ConsoleTest.pdb
+F:\Unity_main_data\MyTetris_Game\vs_fsm_test\MyFSM_ConsoleTest\obj\Debug\MyFSM_ConsoleTest.csprojResolveAssemblyReference.cache
+F:\Unity_main_data\MyTetris_Game\vs_fsm_test\MyFSM_ConsoleTest\obj\Debug\MyFSM_ConsoleTest.exe
+F:\Unity_main_data\MyTetris_Game\vs_fsm_test\MyFSM_ConsoleTest\obj\Debug\MyFSM_ConsoleTest.pdb

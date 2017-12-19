@@ -11,32 +11,20 @@ namespace MyFSM
     }
 
     public class State : IState {
-        /// <summary>
-        /// List of all states;
-        /// </summary>
-        static List<State> listStates = new List<State>();
 
-        private bool _isActive = false; 
+        private bool _isActive = false;
         private string _name = "Zero_state";
-
-        //some value associated with the current state
-        //this variable can be expanded
-        public int keyValue = -1;
+        private int keyValue = -1;
 
         public event ChangeStateHandler OnStateEnter;
         public event ChangeStateHandler OnStateExit;
 
         /// <summary>
-        /// Initialize give state Id and add to listStates;
+        /// Initialize. Give state Name and Key 
         /// </summary>
-        public State() { 
-            listStates.Add(this);
-            _name = "new state #" + (listStates.Count - 1).ToString();
-        }
-
-        public State(string name, int keyValue) : this() {
-            this._name = name;
-            this.keyValue = keyValue;
+        public State(string name, int keyVal) {
+            Name = name;
+            this.keyValue = keyVal;
         }
 
         /// <summary>
@@ -53,10 +41,10 @@ namespace MyFSM
         }
 
         /// <summary>
-        /// Just for avoid questions that appear with the text;
+        /// Numeric key use for avoid questions that appear with the text;
         /// Eng/Rus? What register? etc.
         /// </summary>
-        public int KeyValue {
+        public int Key {
             get { return keyValue; }
         }
 
@@ -74,39 +62,6 @@ namespace MyFSM
                 }
                 _isActive = value;
             }
-        } 
-
-        #region Public static methods
-        /// <summary>
-        /// Find stets in lisrStates by ID
-        /// </summary>
-        /// <param name="id">ID state</param>
-        /// <returns></returns>
-        static public State GetStateByKey(int keyVal) {
-            foreach (State state in listStates) {
-                if (state.KeyValue == keyVal) {
-                    return state;
-                }
-            }
-            return null;
         }
-
-        /// <summary>
-        /// Find stets in lisrStates by Name
-        /// </summary>
-        /// <param name="id">_name state</param>
-        /// <returns></returns>
-        static public State GetStateByName(string name) {
-            if (string.IsNullOrEmpty(name.Trim())) {
-                return null;
-            }
-            foreach (State state in listStates) {
-                if (state.Name == name) {
-                    return state;
-                }
-            }
-            return null;
-        } 
-        #endregion 
     }
 }

@@ -3,14 +3,21 @@ using System.Collections.Generic;
 
 namespace MyFSM {
     public class StateMachine {
+
+        static List<State> listStates = new List<State>();
+
         State _curActiveState;
 
-        bool _isFrmSctive = false;
+        bool _isFsmActive = false;
 
+        /// <summary>
+        /// Activate state machine
+        /// Is current state is set - activate it
+        /// </summary>
         public bool IsFsmActive {
-            get { return _isFrmSctive; }
+            get { return _isFsmActive; }
             set {
-                _isFrmSctive = value;
+                _isFsmActive = value;
                 if (_curActiveState != null) _curActiveState.IsActive = value;
             }
         }
@@ -19,19 +26,21 @@ namespace MyFSM {
             _curActiveState = null;
         }
 
+        /// <summary>
+        /// Returns current active state
+        /// </summary>
         public State CurActiveState {
             get {
-                if (_isFrmSctive && (_curActiveState != null)) {
+                if (_isFsmActive && (_curActiveState != null)) {
                     return _curActiveState;
                 } else {
                     return null;
                 }
             }
         }
-
         /// <summary>
-        /// Turns off the current state
-        /// and activates the new state
+        /// Switch new current state
+        /// property IsActive triggers an event
         /// </summary>
         /// <param name="newState"></param>
         public void SwitchState(State newState) {
@@ -39,21 +48,88 @@ namespace MyFSM {
 
             if (_curActiveState != null) _curActiveState.IsActive = false;
             _curActiveState = newState;
-            if (_isFrmSctive) _curActiveState.IsActive = true;
+            if (_isFsmActive) _curActiveState.IsActive = true;
         }
 
-        public void SwitchState(int keyVal = -1) {
-            if (keyVal < 0) return;
-            State state = State.GetStateByKey(keyVal);
+        /// <summary>
+        /// Find state by Key and activate it
+        /// </summary>
+        /// <param name="stateKey"></param>
+        public void SwitchState(int key = -1) {
+            if (key < 0) return;
+            State state = GetStateByKey(key);
             if (state == null) return;
             SwitchState(state);
         }
 
+        /// <summary>
+        ///  Find state by Name and activate it
+        /// </summary>
+        /// <param name="stateName"></param>
         public void SwitchState(string stateName = "") {
             if (string.IsNullOrEmpty(stateName)) return;
-            State state = State.GetStateByName(stateName);
+            State state = GetStateByName(stateName);
             if (state == null) return;
             SwitchState(state);
         }
+
+        /// <summary>
+        /// Find stets in lisrStates by ID
+        /// </summary>
+        /// <param name="id">ID state</param>
+        /// <returns></returns>
+        private State GetStateByKey(int key) {
+            foreach (State state in listStates) {
+                if (state.Key == key) {
+                    return state;
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Find stets in lisrStates by Name
+        /// </summary>
+        /// <param name="id">_name state</param>
+        /// <returns></returns>
+        private State GetStateByName(string name) {
+            if (string.IsNullOrEmpty(name.Trim())) {
+                return null;
+            }
+            foreach (State state in listStates) {
+                if (state.Name == name) {
+                    return state;
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Add new state to the list States
+        /// </summary>
+        /// <param name="state">new State object</param>
+        /// <returns></returns>
+        public bool AddState(State state) {
+            if (state == null) return false;
+
+            for (int i = 0; i < listStates.Count; i++) {
+                if (listStates[i] == state) {
+                    return false;
+                }
+            }
+            listStates.Add(state);
+            return true;
+        }
+
+        public void AddStates(params State[] states) {
+            if (states.Length == 0) return;
+
+            foreach (State item in states) {
+                if (AddState(item)) {
+                    AddState(item);
+                }
+            }
+        }
+
     }
 }

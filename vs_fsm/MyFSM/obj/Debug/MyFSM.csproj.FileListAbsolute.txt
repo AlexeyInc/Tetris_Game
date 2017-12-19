@@ -1,0 +1,5 @@
+F:\Unity_main_data\MyTetris_Game\vs_fsm\MyFSM\bin\Debug\MyFSM.dll
+F:\Unity_main_data\MyTetris_Game\vs_fsm\MyFSM\bin\Debug\MyFSM.pdb
+F:\Unity_main_data\MyTetris_Game\vs_fsm\MyFSM\obj\Debug\MyFSM.csprojResolveAssemblyReference.cache
+F:\Unity_main_data\MyTetris_Game\vs_fsm\MyFSM\obj\Debug\MyFSM.dll
+F:\Unity_main_data\MyTetris_Game\vs_fsm\MyFSM\obj\Debug\MyFSM.pdb

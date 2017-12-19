@@ -5,78 +5,92 @@ using System.Text;
 
 namespace MyFSM_ConsoleTest {
 
-    delegate void MenuMethod();
+    delegate void MenuStateHandler();
 
     class Program {
 
-        public static List<MenuMethod> listConsoleMenu = new List<MenuMethod>();
+        public static List<MenuStateHandler> listConsoleMenu = new List<MenuStateHandler>();
 
         static void Main(string[] args) {
-            Program.listConsoleMenu.Add(OnMainMenu);
-            Program.listConsoleMenu.Add(OnGameMenu);
-            Program.listConsoleMenu.Add(OnHelpMenu);
-            Program.listConsoleMenu.Add(OnRulesMenu);
-            Program.listConsoleMenu.Add(OnAboutMenu);
-            Program.listConsoleMenu.Add(OnNewGameMenu);
-            Program.listConsoleMenu.Add(OnExitMenu);
 
-            int val = 0;
+        #region Add menu states
+            Program.listConsoleMenu.Add(MainMenu);
+            Program.listConsoleMenu.Add(GameMenu);
+            Program.listConsoleMenu.Add(HelpMenu);
+            Program.listConsoleMenu.Add(RulesMenu);
+            Program.listConsoleMenu.Add(AboutMenu);
+            Program.listConsoleMenu.Add(NewGameMenu);
+            Program.listConsoleMenu.Add(ExitMenu);
+        #endregion
+
+            Controller.Instance.ChangeUIState += ChangeStateMenu;
+            Controller.Instance.ActiveFSM();
+
+            string val = "";
             do {
                 Controller.Instance.ChangeScenario(val);
 
-                Console.WriteLine("Для выхода введите 420.");
-                val = int.Parse(Console.ReadLine());
-            } while (val != 420);
+                Console.WriteLine("Для выхода введите close.");
+                val = Console.ReadLine();
+            } while (val != "close");
         }
 
-        static void OnMainMenu() {
+        static void ChangeStateMenu(int indx, bool value) {
+            if (value) {
+                listConsoleMenu[indx]();
+            } else {
+                OffCurrentState(listConsoleMenu[indx].Method.ToString().Split(' ').Last()); 
+            }
+        }
+
+        static void MainMenu() {
             Console.WriteLine("Мы в главном меню, выберите куда идти:");
-            Console.WriteLine("Game_1\nHelp_2");
+            Console.WriteLine("Game\nHelp");
             Console.WriteLine("------------------");
         }
 
-        static void OnGameMenu() {
+        static void GameMenu() {
             Console.WriteLine("Мы в меню игры, выберите куда идти:");
-            Console.WriteLine("New_Game_5\nExit_6");
-            Console.WriteLine("Назад_0");
+            Console.WriteLine("New_Game\nExit");
+            Console.WriteLine("Назад_(MainMenu)");
             Console.WriteLine("------------------");
 
         }
 
-        static void OnHelpMenu() {
+        static void HelpMenu() {
             Console.WriteLine("Мы в меню помощи, выберите куда идти:");
-            Console.WriteLine("Rules_3\nAbout_4");
-            Console.WriteLine("Назад_0");
+            Console.WriteLine("Rules_(gamerules)\nAbout_(about)");
+            Console.WriteLine("Назад_(MainMenu)");
             Console.WriteLine("------------------");
         }
 
-        static void OnRulesMenu() {
+        static void RulesMenu() {
             Console.WriteLine("Мы в меню правил");
-            Console.WriteLine("Назад_2");
+            Console.WriteLine("Назад_(Help)");
             Console.WriteLine("------------------");
         }
 
-        static void OnAboutMenu() {
+        static void AboutMenu() {
             Console.WriteLine("Мы в меню об разработчике");
-            Console.WriteLine("Назад_2");
+            Console.WriteLine("Назад_(Help)");
             Console.WriteLine("------------------");
         }
 
-        static void OnNewGameMenu() {
+        static void NewGameMenu() {
             Console.Clear();
             Console.WriteLine("Мы начали новую игру");
-            Console.WriteLine("Вернуться в главное меню_0");
+            Console.WriteLine("Вернуться в главное меню_(MainMenu)");
             Console.WriteLine("------------------");
         }
-        static void OnExitMenu() {
+        static void ExitMenu() {
             Console.Clear();
             Console.WriteLine("Мы покинули игру");
-            Console.WriteLine("Вернуться в главное меню_0");
+            Console.WriteLine("Вернуться в главное меню_(MainMenu)");
             Console.WriteLine("------------------");
         }
 
         public static void OffCurrentState(string name) {
-            Console.WriteLine($"--------------------------------\nМы покинули сотояние: '{name}'\n----------------------------\n");
+            Console.WriteLine($"--------------------------------\nМы покинули сотояние: '{name}'\n-------------------------------\n");
         }
     }
 }

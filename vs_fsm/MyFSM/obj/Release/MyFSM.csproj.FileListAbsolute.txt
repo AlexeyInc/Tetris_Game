@@ -3,3 +3,8 @@ c:\users\aleks\documents\visual studio 2017\Projects\MyFSM\MyFSM\bin\Release\MyF
 c:\users\aleks\documents\visual studio 2017\Projects\MyFSM\MyFSM\obj\Release\MyFSM.csprojResolveAssemblyReference.cache
 c:\users\aleks\documents\visual studio 2017\Projects\MyFSM\MyFSM\obj\Release\MyFSM.dll
 c:\users\aleks\documents\visual studio 2017\Projects\MyFSM\MyFSM\obj\Release\MyFSM.pdb
+F:\Unity_main_data\MyTetris_Game\vs_fsm\MyFSM\bin\Release\MyFSM.dll
+F:\Unity_main_data\MyTetris_Game\vs_fsm\MyFSM\bin\Release\MyFSM.pdb
+F:\Unity_main_data\MyTetris_Game\vs_fsm\MyFSM\obj\Release\MyFSM.csprojResolveAssemblyReference.cache
+F:\Unity_main_data\MyTetris_Game\vs_fsm\MyFSM\obj\Release\MyFSM.dll
+F:\Unity_main_data\MyTetris_Game\vs_fsm\MyFSM\obj\Release\MyFSM.pdb
