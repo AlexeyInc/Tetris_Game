@@ -293,7 +293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  decreaseSpeed: 0.1
+  decreaseSpeed: 0.05
   timeBetweenCellDisapper: 0.135
   timeAfterDisapperCell: 0.07
   timeBeforePlaceNextFigure: 0.1

@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour {
     private static GameManager _instance; 
     private delegate bool FuncHandler();
       
-    private double _scoreCounter = 50;
+    private double _scoreCounter = 30;
     private double _currentSpeed;
 
     private GameObject[,] _figuresStorage;

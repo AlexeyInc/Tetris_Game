@@ -61,7 +61,7 @@ class GameView {
         }
     }
 
-    public Material GetFigureColor(CellColor color) {//change to private
+    private Material GetFigureColor(CellColor color) { 
         switch (color) {
             case CellColor.Default:
                 return _figureColors[0];

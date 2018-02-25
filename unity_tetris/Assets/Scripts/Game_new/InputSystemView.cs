@@ -14,21 +14,21 @@ public class InputSystemView : MonoBehaviour {
     void Update() {
 
         if (!Pause) {
-            if (Input.GetKeyDown(KeyCode.RightArrow)) {
+            if (Input.GetKeyDown(KeyCode.D)) {
                 LeftClick();
             }
-            if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+            if (Input.GetKeyDown(KeyCode.A)) {
                 RigthClick();
             }
-            if (Input.GetKeyDown(KeyCode.DownArrow)) {
+            if (Input.GetKeyDown(KeyCode.S)) {
                 DownClick();
             }
 
-            if (Input.GetKeyDown(KeyCode.A)) {
+            if (Input.GetKeyDown(KeyCode.W)) {
                 DropClick();
             }
 
-            if (Input.GetKeyDown(KeyCode.UpArrow)) {
+            if (Input.GetKeyDown(KeyCode.Q)) {
                 RotateClick();
             }
         } 
