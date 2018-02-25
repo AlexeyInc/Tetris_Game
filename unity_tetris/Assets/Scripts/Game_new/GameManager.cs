@@ -171,7 +171,10 @@ public class GameManager : MonoBehaviour {
         }
     }
      
-    void UpdateScore(int value) { 
+    void UpdateScore(int value) {
+        if (value > 1) {
+            value *= 2;
+        }
         if (Score.Singleton.SetScore(value) > _scoreCounter) {
             _scoreCounter += 20;
             _currentSpeed -= decreaseSpeed;
