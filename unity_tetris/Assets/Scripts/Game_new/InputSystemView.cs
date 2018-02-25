@@ -8,25 +8,29 @@ public class InputSystemView : MonoBehaviour {
     public Action DownClick;
     public Action DropClick;
     public Action RotateClick;
-     
+
+    public bool Pause { get; set; } 
+
     void Update() {
-       
-        if (Input.GetKeyDown(KeyCode.D)) {
-            LeftClick();
-        }
-        if (Input.GetKeyDown(KeyCode.A)) {
-            RigthClick();
-        }
-        if (Input.GetKeyDown(KeyCode.S)) {
-            DownClick();
-        }
 
-        if (Input.GetKeyDown(KeyCode.W)) {
-            DropClick();
-        }
+        if (!Pause) {
+            if (Input.GetKeyDown(KeyCode.RightArrow)) {
+                LeftClick();
+            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+                RigthClick();
+            }
+            if (Input.GetKeyDown(KeyCode.DownArrow)) {
+                DownClick();
+            }
 
-        if (Input.GetKeyDown(KeyCode.Q)) { 
-            RotateClick();
-        }
+            if (Input.GetKeyDown(KeyCode.A)) {
+                DropClick();
+            }
+
+            if (Input.GetKeyDown(KeyCode.UpArrow)) {
+                RotateClick();
+            }
+        } 
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using MyFSM;
+using FSM;
 
 public class ButtonManager : MonoBehaviour {
 
@@ -18,7 +18,7 @@ public class ButtonManager : MonoBehaviour {
     /// at the end there should always be a name of the state.
     /// </summary>
 	void StateOnClick() {
-        string[] nameMenu = gameObject.name.Split('_'); 
-        Controller.Instance.ChangeScenario(nameMenu[nameMenu.Length -1]);
+        string[] nameMenu = this.gameObject.name.Split('_'); 
+        UIController.Instance.ChangeScenario(nameMenu[nameMenu.Length -1]);
     }
 }

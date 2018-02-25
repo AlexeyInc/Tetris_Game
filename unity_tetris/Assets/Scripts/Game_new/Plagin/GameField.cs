@@ -4,7 +4,12 @@ namespace TetrisLibrary {
 
     public delegate void StateHandler();
 
-    public class GameField : Board {
+    interface IGameField {
+        event StateHandler OnStateChanged;
+        event StateHandler OnAddFigure;
+    }
+
+    public class GameField : Board, IGameField {
 
         private FigureManager _manager; 
         private Figure _curFigure;
@@ -13,7 +18,7 @@ namespace TetrisLibrary {
         private bool _isFalling;
 
         /// <summary>
-		/// Событие смены положения фигуры
+		/// Событие смены расположения фигур на доске
 		/// </summary> 
         public event StateHandler OnStateChanged;
         /// <summary>
@@ -83,10 +88,7 @@ namespace TetrisLibrary {
                 } 
             }
 
-            _isFalling = true;
-            if (OnStateChanged != null) {
-                OnStateChanged();
-            }
+            _isFalling = true; 
         }
 
         /// <summary>
@@ -168,7 +170,7 @@ namespace TetrisLibrary {
         public void Rotate() {
             ClearCurrentFigure();
 
-            if (CanRotate()) {
+            if (_curFigure != null && CanRotate()) {
                 _curFigure.RotateFigure();
                 for (int row = 0; row < _curFigure.FigureHeigth; row++) {
                     for (int col = 0; col < _curFigure.FigureWidth; col++) {
@@ -191,7 +193,7 @@ namespace TetrisLibrary {
         public void MoveRigth() {
             ClearCurrentFigure();
 
-            if (CanMoveRight()) { 
+            if (_curFigure != null && CanMoveRight()) { 
                 for (int row = 0; row < _curFigure.FigureHeigth; row++) {
                     for (int col = 0; col < _curFigure.FigureWidth; col++) {
                         if (_curFigure[row, col] != 0) { 
@@ -213,7 +215,7 @@ namespace TetrisLibrary {
         public void MoveLeft() {
             ClearCurrentFigure();
 
-            if (CanMoveLeft()) {
+            if (_curFigure != null && CanMoveLeft()) {
                 for (int row = 0; row < _curFigure.FigureHeigth; row++) {
                     for (int col = 0; col < _curFigure.FigureWidth; col++) {
                         if (_curFigure[row, col] != 0) {
@@ -236,7 +238,7 @@ namespace TetrisLibrary {
         public void MoveDown() {
             ClearCurrentFigure();
 
-            if (CanMoveDown()) {
+            if (_curFigure != null && CanMoveDown()) {
                 for (int row = 0; row < _curFigure.FigureHeigth; row++) {
                     for (int col = 0; col < _curFigure.FigureWidth; col++) {
                         if (_curFigure[row, col] != 0) {
@@ -255,21 +257,25 @@ namespace TetrisLibrary {
             }
         }
 
-        private void ClearCurrentFigure() { 
-            for (int row = 0; row < _curFigure.FigureHeigth; row++) {
-                for (int col = 0; col < _curFigure.FigureWidth; col++) {
-                    if (_curFigure[row, col] != 0) {
-                        board[row + _shiftRow, col + _shiftCol] = CellColor.Default;
+        private void ClearCurrentFigure() {
+            if (_curFigure != null) {
+                for (int row = 0; row < _curFigure.FigureHeigth; row++) {
+                    for (int col = 0; col < _curFigure.FigureWidth; col++) {
+                        if (_curFigure[row, col] != 0) {
+                            board[row + _shiftRow, col + _shiftCol] = CellColor.Default;
+                        }
                     }
                 }
             } 
         }
 
-        private void RevertCurrentFigure() { 
-            for (int row = 0; row < _curFigure.FigureHeigth; row++) {
-                for (int col = 0; col < _curFigure.FigureWidth; col++) {
-                    if (_curFigure[row, col] != 0) {
-                        board[row + _shiftRow, col + _shiftCol] = _curFigure.Color; 
+        private void RevertCurrentFigure() {
+            if (_curFigure != null) {
+                for (int row = 0; row < _curFigure.FigureHeigth; row++) {
+                    for (int col = 0; col < _curFigure.FigureWidth; col++) {
+                        if (_curFigure[row, col] != 0) {
+                            board[row + _shiftRow, col + _shiftCol] = _curFigure.Color;
+                        }
                     }
                 }
             } 

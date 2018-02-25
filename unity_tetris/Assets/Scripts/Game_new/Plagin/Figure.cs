@@ -46,7 +46,7 @@ namespace TetrisLibrary {
         }
 
         /// <summary>
-        /// Вращает фигуру с помощью смены индекса в массиве
+        /// Вращает фигуру с помощью смены индекса в массиве фигур
         /// </summary>
         public void RotateFigure() {
             curIndex = curIndex == Arrays.Length - 1 ? 0 : ++curIndex;  

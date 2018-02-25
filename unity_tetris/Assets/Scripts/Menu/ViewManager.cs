@@ -1,6 +1,6 @@
 ﻿ using UnityEngine;
 using System.Collections.Generic;
-using MyFSM;
+using FSM;
 
 public class ViewManager : MonoBehaviour {
 
@@ -16,13 +16,13 @@ public class ViewManager : MonoBehaviour {
         listMenuPrefabs = new Dictionary<int, GameObject>();
         isInstantiatedPrefab = new bool[UI_Elements.Length];
 
-        Controller.Instance.ChangeUIState += SetUI_Active;
-        Controller.Instance.ActiveFSM(); 
+        UIController.Instance.ChangeUIState += SetUI_Active;
+        UIController.Instance.ActiveFSM(); 
     }
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            Controller.Instance.ChangeScenario("MainMenu");
+            UIController.Instance.ChangeScenario("MainMenu");
         }
     }
 

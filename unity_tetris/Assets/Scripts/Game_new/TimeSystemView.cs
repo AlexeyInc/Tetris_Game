@@ -12,7 +12,7 @@ public class TimeSystemView : MonoBehaviour {
       
 	void Update () { 
         if (_speedCounter > GameSpeed && GameSpeed > 0 && !Pause) {
-            _speedCounter = 0;
+            _speedCounter = 0; 
             Tick();
         }
 

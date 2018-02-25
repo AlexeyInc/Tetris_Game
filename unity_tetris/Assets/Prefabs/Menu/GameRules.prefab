@@ -219,16 +219,16 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'You visited this page to learn the rules of the game, but in fact you install
-    them yourself
+  m_Text: 'You visited this page to learn the rules of the game, but in fact you define
+    them by yourself
 
 
-    You visited this page to learn the rules of the game, but in fact you install
-    them yourself
+    You visited this page to learn the rules of the game, but in fact you define them
+    by yourself
 
 
-    You visited this page to learn the rules of the game, but in fact you install
-    them yourself'
+    You visited this page to learn the rules of the game, but in fact you define them
+    by yourself'
 --- !u!114 &114923678762688590
 MonoBehaviour:
   m_ObjectHideFlags: 1

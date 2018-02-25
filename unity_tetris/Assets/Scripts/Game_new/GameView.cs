@@ -3,35 +3,49 @@ using TetrisLibrary;
 
 class GameView {
 
-    private GameObject[,] _figuresStorage;
-    private GameObject[,] _previewFigureStorage;
+    private MeshRenderer[,] _figuresMaterial;
+    private MeshRenderer[,] _previewFigureMesh; 
 
     private Material[] _figureColors;
        
-    public GameView(GameObject[,] figuresStorage, 
-                    GameObject[,] previewFigureStorage,  
-                    Material[] figureColors
-            ) {
-        _figuresStorage = figuresStorage;
-        _previewFigureStorage = previewFigureStorage; 
-        _figureColors = figureColors;
+    public GameView(GameObject[,] figuresStorage, GameObject[,] previewFigureStorage, Material[] figureColors) {
+
+        InitComponents(figuresStorage, previewFigureStorage, figureColors);   
     }
 
+    private void InitComponents(GameObject[,] fStorage, GameObject[,] preview_fStorage, Material[] fColors) {
+        _figuresMaterial = new MeshRenderer[fStorage.GetLength(0), fStorage.GetLength(1)];
+        _previewFigureMesh = new MeshRenderer[preview_fStorage.GetLength(0), preview_fStorage.GetLength(1)]; 
 
+        for (int row = 0; row < _figuresMaterial.GetLength(0); row++) {
+            for (int col = 0; col < _figuresMaterial.GetLength(1); col++) {
+                _figuresMaterial[row, col] = fStorage[row, col].GetComponent<MeshRenderer>();
+            }
+        }
+
+        for (int row = 0; row < _previewFigureMesh.GetLength(0); row++) {
+            for (int col = 0; col < _previewFigureMesh.GetLength(1); col++) {
+                _previewFigureMesh[row, col] = preview_fStorage[row, col].GetComponent<MeshRenderer>();
+            }
+        }
+
+        _figureColors = fColors;
+    }
+     
     public void ViewBoard() { 
         for (int row = 0; row < Board.BoardHeigth; row++) {
             for (int col = 0; col < Board.BoardWidth; col++) {
-                _figuresStorage[row, col].GetComponent<MeshRenderer>().material = GetFigureColor(Board.GetBoardCell(row, col)); 
+                _figuresMaterial[row, col].material = GetFigureColor(Board.GetBoardCell(row, col));
             }
         }
     }
 
     public void PreviewNextFigure(Figure fClone) {
-        Figure nextFigure = fClone;
+        Figure nextFigure = fClone; 
 
-        for (int row = 0; row < _previewFigureStorage.GetLength(0); row++) {
-            for (int col = 0; col < _previewFigureStorage.GetLength(1); col++) {
-                _previewFigureStorage[row, col].SetActive(false);
+        for (int row = 0; row < _previewFigureMesh.GetLength(0); row++) {
+            for (int col = 0; col < _previewFigureMesh.GetLength(1); col++) {
+                _previewFigureMesh[row, col].enabled = false;
             }
         }
 
@@ -39,15 +53,15 @@ class GameView {
             for (int row = 0; row < nextFigure.FigureHeigth; row++) {
                 for (int col = 0; col < nextFigure.FigureWidth; col++) {
                     if (nextFigure[row, col] != 0) {
-                        _previewFigureStorage[col, row].GetComponent<MeshRenderer>().material = GetFigureColor(nextFigure.Color);
-                        _previewFigureStorage[col, row].SetActive(true);
+                        _previewFigureMesh[col, row].material = GetFigureColor(nextFigure.Color);
+                        _previewFigureMesh[col, row].enabled = true;
                     }
                 }
             }
-        } 
+        }
     }
 
-    private Material GetFigureColor(CellColor color) {
+    public Material GetFigureColor(CellColor color) {//change to private
         switch (color) {
             case CellColor.Default:
                 return _figureColors[0];
@@ -69,5 +83,5 @@ class GameView {
                 Debug.Log("Ни один из цветов не подошел.");
                 return _figureColors[0]; 
         }
-    }
+    } 
 }

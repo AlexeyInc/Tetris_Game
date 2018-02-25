@@ -13,9 +13,10 @@ namespace TetrisLibrary {
                 new FigureZ(0, CellColor.Red),
                 new FigureS(0, CellColor.Orange),
                 new FigureQ(0, CellColor.Yellow),
-                new FigureT(0, CellColor.Pink),
+                new FigureT(0, CellColor.Pink), 
                 new FigureL(0, CellColor.Purple),
-                new FigureL2(0, CellColor.Blue) };
+                new FigureL2(0, CellColor.Blue)
+            };
             rand = new System.Random();
         }
 
