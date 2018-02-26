@@ -5,10 +5,15 @@ public class Score : MonoBehaviour {
 
     private Text _text;
     private int _score = 0;
-    private int _level = 1;
-    private int[] _levelStages; 
+    private int _level = 1; 
 
     private static Score _instance;
+
+    public int CurScore {
+        get {
+            return _score;
+        }
+    }
 
     public static Score Singleton {
         get {
@@ -19,28 +24,23 @@ public class Score : MonoBehaviour {
     private void Awake() {
         if (_instance == null) {
             _instance = this;
-        }
-
-        _text = this.gameObject.GetComponent<Text>(); 
+        } 
     }
 
     private void Start() {
-        _levelStages = new int[50];
-
-        for (int i = 0; i < _levelStages.Length; i+=10) {
-            _levelStages[i] = i * 2;
-        }
+        _text = this.gameObject.GetComponent<Text>();
+        _text.text = "Level: " + _level.ToString() + "\n\nScore: " + _score.ToString();
     }
 
-    public int SetScore(int value) {
+    public int SetScore(int value, bool isUpLevel = false) {
         if (value == -1) {
             _score = 0;
-            _level = 0;
+            _level = 1;
         } else {
             _score += value;
         }
 
-        if (_score > _levelStages[_level]) {
+        if (isUpLevel) {
             ++_level;
         }
         _text.text = "Level: " + _level.ToString() + "\n\nScore: " + _score.ToString();

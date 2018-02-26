@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour {
     }
       
     void InitGameComponent() { 
-        _gameFiledObj = new GameField(18, 11);
+        _gameFiledObj = new GameField(19, 10);
 
         _figuresStorage = new GameObject[Board.BoardHeigth, Board.BoardWidth];
         _figuresAnimator = new Animator[Board.BoardHeigth, Board.BoardWidth]; 
@@ -171,15 +171,15 @@ public class GameManager : MonoBehaviour {
         }
     }
      
-    void UpdateScore(int value) {
-        if (value > 1) {
-            value *= 2;
-        }
-        if (Score.Singleton.SetScore(value) > _scoreCounter) {
+    void UpdateScore(int value) {  
+        if (Score.Singleton.CurScore + value > _scoreCounter) {
+            Score.Singleton.SetScore(value, true);
             _scoreCounter += 20;
             _currentSpeed -= decreaseSpeed;
             _timeSystemObj.SetNewSpeed(_currentSpeed);
-        } 
+        } else {
+            Score.Singleton.SetScore(value);
+        }
     } 
 
     private void GameOver() {

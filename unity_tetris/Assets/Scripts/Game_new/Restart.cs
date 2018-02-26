@@ -7,10 +7,10 @@ public class Restart : MonoBehaviour {
 
     void Awake() {
         _btn = this.gameObject.GetComponent<Button>();
-        _btn.onClick.AddListener(RestartGame);
+        _btn.onClick.AddListener(RestartGame); 
     }
-      
-    void RestartGame() {
-        UIController.Instance.ChangeScenario("newgame"); 
+     
+    void RestartGame() {  
+        UIController.Instance.ChangeScenario("newgame");
     }
 }
