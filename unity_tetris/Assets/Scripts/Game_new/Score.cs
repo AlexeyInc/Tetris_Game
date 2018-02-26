@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class Score : MonoBehaviour {
 
+    private static Score _instance;
+    
     private Text _text;
     private int _score = 0;
     private int _level = 1; 
-
-    private static Score _instance;
-
+ 
     public int CurScore {
         get {
             return _score;
