@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class Score : MonoBehaviour {
 
+    private static Score _instance;
+    
     private Text _text;
     private int _score = 0;
     private int _level = 1; 
-
-    private static Score _instance;
-
+ 
     public int CurScore {
         get {
             return _score;
@@ -31,7 +31,7 @@ public class Score : MonoBehaviour {
         _text = this.gameObject.GetComponent<Text>();
         _text.text = "Higth score: " + PlayerPrefs.GetInt("BestScore", 0) + "\n\n\nLevel: " + _level.ToString() + "\n\nScore: " + _score.ToString();
     }
-
+    //private
     public int SetScore(int value, bool isUpLevel = false) {
         if (value == -1) {
             _score = 0;
