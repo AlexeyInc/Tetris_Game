@@ -29,7 +29,7 @@ public class Score : MonoBehaviour {
 
     private void Start() {
         _text = this.gameObject.GetComponent<Text>();
-        _text.text = "Level: " + _level.ToString() + "\n\nScore: " + _score.ToString();
+        _text.text = "Higth score: " + PlayerPrefs.GetInt("BestScore", 0) + "\n\n\nLevel: " + _level.ToString() + "\n\nScore: " + _score.ToString();
     }
 
     public int SetScore(int value, bool isUpLevel = false) {
@@ -38,12 +38,17 @@ public class Score : MonoBehaviour {
             _level = 1;
         } else {
             _score += value;
+            if (PlayerPrefs.GetInt("BestScore", 0) < _score) {
+                PlayerPrefs.SetInt("BestScore", _score);
+            }
         }
 
         if (isUpLevel) {
             ++_level;
         }
-        _text.text = "Level: " + _level.ToString() + "\n\nScore: " + _score.ToString();
+        _text.text = "Higth score: " + PlayerPrefs.GetInt("BestScore", 0).ToString() + 
+                     "\n\n\nLevel: " + _level.ToString() + 
+                     "\n\nScore: " + _score.ToString();
 
         return _score;
     }
