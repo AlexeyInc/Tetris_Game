@@ -61,8 +61,7 @@
 				fixed4 col = tex2D(_DissolveTex, i.uv3);
 				fixed x = col.r;
 				fixed progress = i.color.a;
-
-				//Edge
+				 
 				fixed edge = lerp(x + _Edge, x - _Edge, progress);
 				fixed alpha = smoothstep(progress + _Edge, progress - _Edge, edge);
 				col = tex2D(_MainTex, i.uv);

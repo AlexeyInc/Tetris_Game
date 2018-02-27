@@ -33,8 +33,7 @@ namespace TetrisLibrary {
         /// Удаляет заполненные ряды и поля со смещением всех лежащих выше вниз
         /// </summary>
         /// <returns>Количество уничтоженных ячеек</returns>
-        public int RemoveFullRows(ref List<int> listFullRows) {
-            //listFullRows = new List<int>();
+        public int RemoveFullRows(ref List<int> listFullRows) { 
 
             for (int row = 0; row < BoardHeigth; row++) {
 
