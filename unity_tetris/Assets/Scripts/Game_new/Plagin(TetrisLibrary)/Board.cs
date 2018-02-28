@@ -48,11 +48,10 @@ namespace TetrisLibrary {
                 if (fullrow) listFullRows.Add(row);
             }
 
-            foreach (int fullRow in listFullRows) {
-                for (int row = fullRow - 1; row > 0; row--) {
-                    for (int col = 0; col < BoardWidth; col++) {
-
-                        board[row + 1, col] = board[row, col];
+            foreach (int fullRow in listFullRows) { 
+                for (int row = fullRow - 1; row >= 0; row--) {
+                    for (int col = 0; col < BoardWidth; col++) { 
+                        board[row + 1, col] = board[row, col]; 
 
                         if (IsRowEmpty(row + 1))
                             break;
