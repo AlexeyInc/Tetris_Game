@@ -15,7 +15,7 @@ Game architecture is implemented in such a way that each figure in Tetris derive
 which contains the basic properties necessary to manage the figure on the game grid. 
 Thus, it is easy to add any new figures of arbitrary shape.
 
-![main](https://user-images.githubusercontent.com/29926552/46168762-0d64cb00-c2a2-11e8-8f83-1373054a140a.png)
+![image](https://user-images.githubusercontent.com/29926552/46169029-b0b5e000-c2a2-11e8-9379-5e9eff089faa.png)
 ![image](https://user-images.githubusercontent.com/29926552/46168916-6cc2db00-c2a2-11e8-8e1b-1268f189955a.png)
 ![image](https://user-images.githubusercontent.com/29926552/46168959-8401c880-c2a2-11e8-84cc-9e214511de4f.png)
 
