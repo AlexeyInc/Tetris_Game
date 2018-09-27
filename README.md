@@ -19,9 +19,9 @@ Thus, it is easy to add any new figures of arbitrary shape.
 ![image](https://user-images.githubusercontent.com/29926552/46168916-6cc2db00-c2a2-11e8-8e1b-1268f189955a.png)
 ![image](https://user-images.githubusercontent.com/29926552/46168959-8401c880-c2a2-11e8-84cc-9e214511de4f.png)
  
- *Controls: A, S - move shape right/left; \n
-             D - accelerate descent;
-             W - fast dropp;
-             Q - rotate shape;*
+ *Controls: A, S - move shape right/left; 
+            D - accelerate descent;
+            W - fast dropp;
+            Q - rotate shape;*
  
 ![tetris](https://user-images.githubusercontent.com/29926552/46170248-e60ffd00-c2a5-11e8-8225-10059eb36ded.gif)
