@@ -14,6 +14,11 @@ Such architecture allows to use this menu-plagin on any platform, whether it's C
 Game architecture is implemented in such a way that each figure in Tetris derived from the abstract base class `Figure`,
 which contains the basic properties necessary to manage the figure on the game grid. 
 Thus, it is easy to add any new figures of arbitrary shape.
+
+* *Controls: A, S - move shape right/left; 
+             D - accelerate descent;
+             W - fast dropp;
+             Q - rotate shape;* *
  
 ![image](https://user-images.githubusercontent.com/29926552/46169029-b0b5e000-c2a2-11e8-9379-5e9eff089faa.png)
 ![image](https://user-images.githubusercontent.com/29926552/46168916-6cc2db00-c2a2-11e8-8e1b-1268f189955a.png)
