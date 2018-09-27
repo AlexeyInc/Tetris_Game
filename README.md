@@ -19,3 +19,6 @@ Thus, it is easy to add any new figures of arbitrary shape.
 ![image](https://user-images.githubusercontent.com/29926552/46168916-6cc2db00-c2a2-11e8-8e1b-1268f189955a.png)
 ![image](https://user-images.githubusercontent.com/29926552/46168959-8401c880-c2a2-11e8-84cc-9e214511de4f.png)
 
+
+![image](https://user-images.githubusercontent.com/29926552/46169103-de9b2480-c2a2-11e8-9735-f3b7ba8355b3.png)
+
