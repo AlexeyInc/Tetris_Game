@@ -16,6 +16,6 @@ which contains the basic properties necessary to manage the figure on the game g
 Thus, it is easy to add any new figures of arbitrary shape.
 
 ![main](https://user-images.githubusercontent.com/29926552/46168762-0d64cb00-c2a2-11e8-8f83-1373054a140a.png)
-![game](https://user-images.githubusercontent.com/29926552/46168760-0ccc3480-c2a2-11e8-900e-65628148d0f9.png)
-![help](https://user-images.githubusercontent.com/29926552/46168761-0d64cb00-c2a2-11e8-83b4-49cfbff47805.png)
+![image](https://user-images.githubusercontent.com/29926552/46168916-6cc2db00-c2a2-11e8-8e1b-1268f189955a.png)
+![image](https://user-images.githubusercontent.com/29926552/46168959-8401c880-c2a2-11e8-84cc-9e214511de4f.png)
 
