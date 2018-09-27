@@ -1,4 +1,4 @@
-# MyTetris_Game 
+# Tetris_Game 
 
 - The main folder **unity_tetris** contains the implementation of the classic Tetris game using Unity.
 
