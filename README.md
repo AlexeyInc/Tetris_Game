@@ -14,3 +14,8 @@ Such architecture allows to use this menu-plagin on any platform, whether it's C
 Game architecture is implemented in such a way that each figure in Tetris derived from the abstract base class `Figure`,
 which contains the basic properties necessary to manage the figure on the game grid. 
 Thus, it is easy to add any new figures of arbitrary shape.
+
+![main](https://user-images.githubusercontent.com/29926552/46168762-0d64cb00-c2a2-11e8-8f83-1373054a140a.png)
+![game](https://user-images.githubusercontent.com/29926552/46168760-0ccc3480-c2a2-11e8-900e-65628148d0f9.png)
+![help](https://user-images.githubusercontent.com/29926552/46168761-0d64cb00-c2a2-11e8-83b4-49cfbff47805.png)
+
