@@ -1,6 +1,6 @@
 # Tetris_Game 
 
-- The main folder **unity_tetris** contains the implementation of the classic Tetris game using Unity.
+- The main folder **unity_tetris** contains the implementation of the classic Tetris game made in Unity.
 
 - The **vs_frm** folder contains the code that implements [Finite-state machine](https://en.wikipedia.org/wiki/Finite-state_machine) for the UI menu. 
 
